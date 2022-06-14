@@ -59,6 +59,7 @@ struct Wheel: View {
                         )
                     }
                     .rotationEffect(.degrees(Double(iteration) * 72))
+//                    .foregroundColor(iteration == 0 ? .blue : .black)
                 }
                 
                 ForEach(0..<5) { iteration in
@@ -90,6 +91,6 @@ struct Wheel: View {
 struct Wheel_Previews: PreviewProvider {
     static var previews: some View {
         Wheel()
-            .frame(width: 150, height: 150)
+            .frame(width: 200, height: 200)
     }
 }
