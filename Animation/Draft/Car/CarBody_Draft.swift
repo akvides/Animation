@@ -35,7 +35,7 @@ struct CarBody_Draft: View {
                     .offset(y: isCarWent ? -10 : 0)
                     .rotationEffect(.degrees(isCarWent ? 1 : 0))
                     .animation(isCarWent ? foreverAnimation : .default, value:  isCarWent)
-                    Wheels(width: self.width, isRotating: $isCarWent)
+                    Wheels(width: self.width, isRotating: $isCarWent, speed: .constant(.first))
                 }
             }
             Spacer()

@@ -25,10 +25,13 @@ struct BackgroundScene: View {
                     }
                 }
                 HStack{
-                    ForEach(0..<100) { iteration in
+                    
+                    ForEach(0..<78) { iteration in
                         Wood(height: 40)
                             .offset(x: CGFloat(iteration * Int.random(in: 0...5)), y: CGFloat(Int.random(in: -10...10)))
+                            .frame(width: 30)
                     }
+                    
                 }
             }
                 .padding(-8)
