@@ -10,7 +10,6 @@ import SwiftUI
 struct Wheels: View {
     
     let width: CGFloat
-    let height: CGFloat
     
     @Binding var isRotating: Bool
     @State private var degree: Double = 0
@@ -26,18 +25,18 @@ struct Wheels: View {
         VStack{
             HStack{
                 Wheel()
-                    .frame(width: width * 0.2285714286, height: height * 0.380952381)
+                    .frame(width: width * 0.2285714286, height: width * 0.2285714286)
                     .rotationEffect(Angle(degrees: -self.degree))
                     .animation(isRotating ? turnWheel : .default, value: isRotating)
                 Spacer()
                 Wheel()
-                    .frame(width: width * 0.2285714286, height: height * 0.380952381)
+                    .frame(width: width * 0.2285714286, height: width * 0.2285714286)
                     .rotationEffect(Angle(degrees: -self.degree))
                     .animation(isRotating ? turnWheel : .default, value: isRotating)
-                    .padding(.trailing, -20)
+                    .padding(.trailing, width * -0.05714285714)
             }
-            .padding(.horizontal, 55)
-            .padding(.top, 130)
+            .padding(.horizontal, width * 0.1571428571)
+            .padding(.top, width * 0.3714285714)
             .onReceive(self.timer) { _ in
                 self.degree += self.isRotating ? 1 : 0
                 self.degree = self.degree.truncatingRemainder(dividingBy: 360)
@@ -48,6 +47,6 @@ struct Wheels: View {
 
 struct Wheels_Previews: PreviewProvider {
     static var previews: some View {
-        Wheels(width: 350, height: 210, isRotating:  .constant(false))
+        Wheels(width: 350, isRotating:  .constant(false))
     }
 }

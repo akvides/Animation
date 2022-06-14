@@ -25,19 +25,18 @@ struct CarBody: View {
         VStack {
             GeometryReader {geometry in
                 let width = geometry.size.width
-                let height = geometry.size.height
                 
                 ZStack{
                     ZStack{
-                        Сarcase(width: width, height: height)
-                        FrontWindow(width: width, height: height)
-                        RearWindow(width: width, height: height)
-                        HeadLight(width: width, height: height)
+                        Carcase(width: width)
+                        FrontWindow(width: width)
+                        RearWindow(width: width)
+                        HeadLight(width: width)
                     }
                     .offset(y: isCarWent ? -10 : 0)
                     .rotationEffect(.degrees(isCarWent ? 1 : 0))
                     .animation(isCarWent ? foreverAnimation : .default, value:  isCarWent)
-                    Wheels(width: self.width, height: self.height, isRotating: $isCarWent)
+                    Wheels(width: self.width, isRotating: $isCarWent)
                 }
             }
             Spacer()
@@ -62,54 +61,74 @@ struct CarBody: View {
 struct CarBody_Previews: PreviewProvider {
     static var previews: some View {
         CarBody(width: 350)
-//            .frame(width: 350, height: 210)
     }
 }
 
-struct Сarcase: View {
+struct Carcase: View {
     
     let width: CGFloat
-    let height: CGFloat
     
     var body: some View {
         Path { path in
-            path.move(to: CGPoint(x: 175, y: 10))
+            path.move(to: CGPoint(x: width * 0.5,
+                                  y: width * 0.02857142857))
             path.addQuadCurve(
-                to: CGPoint(x: 280, y: 80),
-                control: CGPoint(x: 310, y: 10)
+                to: CGPoint(x: width * 0.8,
+                            y: width * 0.2285714286),
+                control: CGPoint(x: width * 0.8857142857,
+                                 y: width * 0.02857142857)
             )
-            path.addLine(to: CGPoint(x: 320, y: 80))
+            path.addLine(to: CGPoint(x: width * 0.9142857143,
+                                     y: width * 0.2285714286))
             path.addQuadCurve(
-                to: CGPoint(x: 350, y: 180),
-                control: CGPoint(x: 350, y: 80)
+                to: CGPoint(x: width,
+                            y: width * 0.5142857143),
+                control: CGPoint(x: width,
+                                 y: width * 0.2285714286)
             )
-            path.addLine(to: CGPoint(x: 320, y: 180))
+            path.addLine(to: CGPoint(x: width * 0.9142857143,
+                                     y: width * 0.5142857143))
             path.addQuadCurve(
-                to: CGPoint(x: 275, y: 128),
-                control: CGPoint(x: 320, y: 128)
-            )
-            path.addQuadCurve(
-                to: CGPoint(x: 230, y: 180),
-                control: CGPoint(x: 230, y: 130)
-            )
-            path.addLine(to: CGPoint(x: 140, y: 180))
-            path.addQuadCurve(
-                to: CGPoint(x: 95, y: 128),
-                control: CGPoint(x: 140, y: 128)
-            )
-            path.addQuadCurve(
-                to: CGPoint(x: 50, y: 180),
-                control: CGPoint(x: 50, y: 130)
-            )
-            path.addLine(to: CGPoint(x: 0, y: 180))
-            path.addLine(to: CGPoint(x: 0, y: 150))
-            path.addQuadCurve(
-                to: CGPoint(x: 100, y: 80),
-                control: CGPoint(x: 00, y: 80)
+                to: CGPoint(x: width * 0.7857142857,
+                            y: width * 0.3657142857),
+                control: CGPoint(x: width * 0.9142857143,
+                                 y: width * 0.3657142857)
             )
             path.addQuadCurve(
-                to: CGPoint(x: 175, y: 10),
-                control: CGPoint(x: 125, y: 10)
+                to: CGPoint(x: width * 0.6571428571,
+                            y: width * 0.5142857143),
+                control: CGPoint(x: width * 0.6571428571,
+                                 y: width * 0.3714285714)
+            )
+            path.addLine(to: CGPoint(x: width * 0.4,
+                                     y: width * 0.5142857143))
+            path.addQuadCurve(
+                to: CGPoint(x: width * 0.2714285714,
+                            y: width * 0.3657142857),
+                control: CGPoint(x: width * 0.4,
+                                 y: width * 0.3657142857)
+            )
+            path.addQuadCurve(
+                to: CGPoint(x: width * 0.1428571429,
+                            y: width * 0.5142857143),
+                control: CGPoint(x: width * 0.1428571429,
+                                 y: width * 0.3714285714)
+            )
+            path.addLine(to: CGPoint(x: 0,
+                                     y: width * 0.5142857143))
+            path.addLine(to: CGPoint(x: 0,
+                                     y: width * 0.4285714286))
+            path.addQuadCurve(
+                to: CGPoint(x: width * 0.2857142857,
+                            y: width * 0.2285714286),
+                control: CGPoint(x: 0,
+                                 y: width * 0.2285714286)
+            )
+            path.addQuadCurve(
+                to: CGPoint(x: width * 0.5,
+                            y: width * 0.02857142857),
+                control: CGPoint(x: width * 0.3571428571,
+                                 y: width * 0.02857142857)
             )
         }
     }
@@ -118,17 +137,21 @@ struct Сarcase: View {
 struct FrontWindow: View {
     
     let width: CGFloat
-    let height: CGFloat
-    
+
     var body: some View {
         Path { path in
-            path.move(to: CGPoint(x: 200, y: 20))
-            path.addLine(to: CGPoint(x: 200, y: 80))
+            path.move(to: CGPoint(x: width * 0.5714285714,
+                                  y: width * 0.05714285714))
+            path.addLine(to: CGPoint(x: width * 0.5714285714,
+                                     y: width * 0.2285714286))
             
-            path.addLine(to: CGPoint(x: 120, y: 80))
+            path.addLine(to: CGPoint(x: width * 0.3428571429,
+                                     y: width * 0.2285714286))
             path.addQuadCurve(
-                to: CGPoint(x: 180, y: 20),
-                control: CGPoint(x: 135, y: 23)
+                to: CGPoint(x: width * 0.5142857143,
+                            y: width * 0.05714285714),
+                control: CGPoint(x: width * 0.3857142857,
+                                 y: width * 0.06571428571)
             )
         }
         .foregroundColor(.white)
@@ -138,17 +161,22 @@ struct FrontWindow: View {
 struct RearWindow: View {
     
     let width: CGFloat
-    let height: CGFloat
+//    let height: CGFloat
     
     var body: some View {
         Path { path in
-            path.move(to: CGPoint(x: 220, y: 22))
-            path.addLine(to: CGPoint(x: 220, y: 80))
+            path.move(to: CGPoint(x: width * 0.6285714286,
+                                  y: width * 0.06285714286))
+            path.addLine(to: CGPoint(x: width * 0.6285714286,
+                                     y: width * 0.2285714286))
             
-            path.addLine(to: CGPoint(x: 265, y: 80))
+            path.addLine(to: CGPoint(x: width * 0.7571428571,
+                                     y: width * 0.2285714286))
             path.addQuadCurve(
-                to: CGPoint(x: 220, y: 22),
-                control: CGPoint(x: 290, y: 30)
+                to: CGPoint(x: width * 0.6285714286,
+                            y: width * 0.06285714286),
+                control: CGPoint(x: width * 0.8285714286,
+                                 y: width * 0.08571428571)
             )
         }
         .foregroundColor(.white)
@@ -158,18 +186,22 @@ struct RearWindow: View {
 struct HeadLight: View {
     
     let width: CGFloat
-    let height: CGFloat
     
     var body: some View {
         Path { path in
-            path.move(to: CGPoint(x: 10, y: 100))
+            path.move(to: CGPoint(x: width * 0.02857142857,
+                                  y: width * 0.2857142857))
             path.addQuadCurve(
-                to: CGPoint(x: 30, y: 110),
-                control: CGPoint(x: 30, y: 100)
+                to: CGPoint(x: width * 0.08571428571,
+                            y: width * 0.3142857143),
+                control: CGPoint(x: width * 0.08571428571,
+                                 y: width * 0.2857142857)
             )
             path.addQuadCurve(
-                to: CGPoint(x: 10, y: 120),
-                control: CGPoint(x: 30, y: 120)
+                to: CGPoint(x: width * 0.02857142857,
+                            y: width * 0.3428571429),
+                control: CGPoint(x: width * 0.08571428571,
+                                 y: width * 0.3428571429)
             )
         }
         .foregroundColor(.gray)
