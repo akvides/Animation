@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        CarBody(width: 250)
+//        CarBody(width: 250)
+        Wood(height: 100)
     }
 }
 
