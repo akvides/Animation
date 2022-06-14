@@ -21,6 +21,7 @@
 		746325E42858C64E00313DBF /* Wood_Draft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746325E32858C64E00313DBF /* Wood_Draft.swift */; };
 		746325E62858CC0000313DBF /* Mountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746325E52858CBFF00313DBF /* Mountain.swift */; };
 		746325E82858DB6D00313DBF /* Mountain_Draft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746325E72858DB6C00313DBF /* Mountain_Draft.swift */; };
+		746325EC2858DC5600313DBF /* BackgroundScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746325EB2858DC5600313DBF /* BackgroundScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		746325E32858C64E00313DBF /* Wood_Draft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wood_Draft.swift; sourceTree = "<group>"; };
 		746325E52858CBFF00313DBF /* Mountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain.swift; sourceTree = "<group>"; };
 		746325E72858DB6C00313DBF /* Mountain_Draft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain_Draft.swift; sourceTree = "<group>"; };
+		746325EB2858DC5600313DBF /* BackgroundScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				7463259E2853281A00313DBF /* AnimationApp.swift */,
 				746325A02853281A00313DBF /* ContentView.swift */,
 				746325E12858BB5A00313DBF /* Wood.swift */,
+				746325EB2858DC5600313DBF /* BackgroundScene.swift */,
 				746325E52858CBFF00313DBF /* Mountain.swift */,
 				746325DF2858BB3300313DBF /* Car */,
 				746325B228534B7600313DBF /* Draft */,
@@ -196,6 +199,7 @@
 				746325DA2854854100313DBF /* Wheels.swift in Sources */,
 				746325A12853281A00313DBF /* ContentView.swift in Sources */,
 				746325DE2858ACBF00313DBF /* CarBody_Draft.swift in Sources */,
+				746325EC2858DC5600313DBF /* BackgroundScene.swift in Sources */,
 				746325E42858C64E00313DBF /* Wood_Draft.swift in Sources */,
 				746325E82858DB6D00313DBF /* Mountain_Draft.swift in Sources */,
 				746325B128534B7200313DBF /* Wheel_Draft.swift in Sources */,
