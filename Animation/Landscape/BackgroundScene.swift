@@ -25,13 +25,12 @@ struct BackgroundScene: View {
                     }
                 }
                 HStack{
-                    
                     ForEach(0..<78) { iteration in
-                        Wood(height: 40)
-                            .offset(x: CGFloat(iteration * Int.random(in: 0...5)), y: CGFloat(Int.random(in: -10...10)))
+                        Tree(height: 40)
+                            .offset(x: CGFloat(iteration * Int.random(in: 0...5)),
+                                    y: CGFloat(Int.random(in: -10...10)))
                             .frame(width: 30)
                     }
-                    
                 }
             }
                 .padding(-8)
@@ -41,9 +40,9 @@ struct BackgroundScene: View {
                         .foregroundColor(.gray)
                     ForEach(0..<40) { iteration in
                         Path { path in
-                            path.move(to: CGPoint(x: 11 + iteration * 75,  // +2
+                            path.move(to: CGPoint(x: 11 + iteration * 75,
                                                   y: 36))
-                            path.addLine(to: CGPoint(x: 64 + iteration * 75, // -2
+                            path.addLine(to: CGPoint(x: 64 + iteration * 75,
                                                      y: 36))
                             path.addLine(to: CGPoint(x: 65 + iteration * 75,
                                                      y: 44))

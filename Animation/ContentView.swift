@@ -15,7 +15,7 @@ struct ContentView: View {
     @State private var speed: Double = 0.005
     @State private var range: CGFloat = 150
     
-    var slideBackground: Animation {
+    private var slideBackground: Animation {
         .linear(duration: 0)
         .repeatForever(autoreverses: false)
     }
@@ -78,7 +78,6 @@ struct ContentView: View {
         }
     }
 }
-
 
 
 struct ContentView_Previews: PreviewProvider {

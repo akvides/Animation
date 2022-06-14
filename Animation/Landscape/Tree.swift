@@ -1,5 +1,5 @@
 //
-//  Wood.swift
+//  Tree.swift
 //  Animation
 //
 //  Created by Василий Полторак on 14.06.2022.
@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct Wood: View {
+struct Tree: View {
     
     let height: CGFloat
+    
     var body: some View {
         GeometryReader { geometry in
             
             let woodColor = Color(red: 85/255, green: 149/255, blue: 78/255)
             let barrelColor = Color(red: 131/255, green: 82/255, blue: 43/255)
-            let width = geometry.size.width
             
-            let middle = width / 2
+            let middle = geometry.size.width / 2
         
             ZStack {
                 Path { path in
@@ -76,6 +76,6 @@ struct Wood: View {
 
 struct Wood_Previews: PreviewProvider {
     static var previews: some View {
-        Wood(height: 300)
+        Tree(height: 300)
     }
 }

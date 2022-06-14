@@ -17,7 +17,7 @@
 		746325DA2854854100313DBF /* Wheels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746325D92854854100313DBF /* Wheels.swift */; };
 		746325DC2858AC1700313DBF /* Wheels_Draft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746325DB2858AC1700313DBF /* Wheels_Draft.swift */; };
 		746325DE2858ACBF00313DBF /* CarBody_Draft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746325DD2858ACBF00313DBF /* CarBody_Draft.swift */; };
-		746325E22858BB5A00313DBF /* Wood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746325E12858BB5A00313DBF /* Wood.swift */; };
+		746325E22858BB5A00313DBF /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746325E12858BB5A00313DBF /* Tree.swift */; };
 		746325E42858C64E00313DBF /* Wood_Draft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746325E32858C64E00313DBF /* Wood_Draft.swift */; };
 		746325E62858CC0000313DBF /* Mountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746325E52858CBFF00313DBF /* Mountain.swift */; };
 		746325E82858DB6D00313DBF /* Mountain_Draft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746325E72858DB6C00313DBF /* Mountain_Draft.swift */; };
@@ -36,7 +36,7 @@
 		746325D92854854100313DBF /* Wheels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wheels.swift; sourceTree = "<group>"; };
 		746325DB2858AC1700313DBF /* Wheels_Draft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wheels_Draft.swift; sourceTree = "<group>"; };
 		746325DD2858ACBF00313DBF /* CarBody_Draft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarBody_Draft.swift; sourceTree = "<group>"; };
-		746325E12858BB5A00313DBF /* Wood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wood.swift; sourceTree = "<group>"; };
+		746325E12858BB5A00313DBF /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		746325E32858C64E00313DBF /* Wood_Draft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wood_Draft.swift; sourceTree = "<group>"; };
 		746325E52858CBFF00313DBF /* Mountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain.swift; sourceTree = "<group>"; };
 		746325E72858DB6C00313DBF /* Mountain_Draft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain_Draft.swift; sourceTree = "<group>"; };
@@ -54,6 +54,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7447E67428592A1F00666AF9 /* Landscape */ = {
+			isa = PBXGroup;
+			children = (
+				746325E12858BB5A00313DBF /* Tree.swift */,
+				746325E52858CBFF00313DBF /* Mountain.swift */,
+				746325EB2858DC5600313DBF /* BackgroundScene.swift */,
+			);
+			path = Landscape;
+			sourceTree = "<group>";
+		};
 		746325922853281A00313DBF = {
 			isa = PBXGroup;
 			children = (
@@ -75,9 +85,7 @@
 			children = (
 				7463259E2853281A00313DBF /* AnimationApp.swift */,
 				746325A02853281A00313DBF /* ContentView.swift */,
-				746325E12858BB5A00313DBF /* Wood.swift */,
-				746325EB2858DC5600313DBF /* BackgroundScene.swift */,
-				746325E52858CBFF00313DBF /* Mountain.swift */,
+				7447E67428592A1F00666AF9 /* Landscape */,
 				746325DF2858BB3300313DBF /* Car */,
 				746325B228534B7600313DBF /* Draft */,
 				746325A22853281D00313DBF /* Assets.xcassets */,
@@ -195,7 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				746325E62858CC0000313DBF /* Mountain.swift in Sources */,
-				746325E22858BB5A00313DBF /* Wood.swift in Sources */,
+				746325E22858BB5A00313DBF /* Tree.swift in Sources */,
 				746325DA2854854100313DBF /* Wheels.swift in Sources */,
 				746325A12853281A00313DBF /* ContentView.swift in Sources */,
 				746325DE2858ACBF00313DBF /* CarBody_Draft.swift in Sources */,

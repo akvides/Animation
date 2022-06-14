@@ -10,18 +10,14 @@ import SwiftUI
 struct Mountain: View {
     
     let height: CGFloat
-    var width: CGFloat {
+    
+    private var width: CGFloat {
         height * 1.5
     }
+    
     var body: some View {
-        GeometryReader { geometry in
-            
-//            let width = geometry.size.width
-//            var width: CGFloat {
-//                height * 1.5
-//            }
-            
-        
+        GeometryReader { _ in
+    
             ZStack {
                 Path { path in
                     path.move(to: CGPoint(x: 0,
@@ -90,8 +86,6 @@ struct Mountain: View {
                     )
                 }
                 .foregroundColor(.white)
-                
-                
             }
         }
         .frame(width: width, height: height)

@@ -10,7 +10,7 @@ import SwiftUI
 struct CarBody: View {
     
     let width: CGFloat
-    var height: CGFloat {
+    private var height: CGFloat {
         width * 0.6
     }
     
@@ -18,7 +18,7 @@ struct CarBody: View {
     @Binding var color: Color
     @Binding var speed: Speed
     
-    var foreverAnimation: Animation {
+    private var foreverAnimation: Animation {
         .easeInOut(duration: 1)
         .repeatForever()
     }
@@ -49,13 +49,6 @@ struct CarBody: View {
             }
         }
         .frame(width: width, height: height)
-        
-    }
-    
-    func tap() {
-        withAnimation {
-            isCarWent.toggle()
-        }
     }
 }
 
