@@ -12,6 +12,7 @@ struct AnimationApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+//            CustomSwitch_Draft()
         }
     }
 }

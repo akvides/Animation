@@ -9,37 +9,110 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var isDay = true
     @State private var startAnimation = false
     @State private var carColor: Color = .black
-    @State private var activeSpeed: Speed = .first
-    @State private var speed: Double = 0.005
-    @State private var range: CGFloat = 150
+    let startPosition = -(UIScreen.main.bounds.width / 2 + (UIScreen.main.bounds.width * 2))
+    @State private var range: CGFloat = -(UIScreen.main.bounds.width / 2 + (UIScreen.main.bounds.width * 2))
     
+    let widthScreen = UIScreen.main.bounds.width
+    let daySkyColor = Color(red: 158/255, green: 203/255, blue: 1)
+    let nightSkyColor = Color(red: 12/255, green: 36/255, blue: 74/255)
+    
+    let arrayMountainsForScene = ForestScene.shared.getArrayMountainsForScene()
+    let arrayPositionsMountainsForScene = ForestScene.shared.getArrayPositionsMountainsForScene()
+    let arrayTreesForScene = ForestScene.shared.getArrayTreesForScene()
+    let arrayPositionsTreesForScene = ForestScene.getArrayPositionsTreesForScene()
+    let arrayPositionsStarsForScene = ForestScene.getArrayPositionsStarsForScene()
+    
+    private var changeTimeOfDay: Animation {
+        .linear(duration: 1.0)
+        .delay(isDay ? 0 : 2)
+    }
+    
+    private var moonAnimation: Animation {
+        .linear(duration: 3)
+        .delay(isDay ? 0 : 3)
+        
+    }
+    
+    private var sunAnimation: Animation {
+        .linear(duration: 3)
+        .delay(isDay ? 2 : 0)
+        
+    }
     private var slideBackground: Animation {
         .linear(duration: 0)
         .repeatForever(autoreverses: false)
     }
     
     var body: some View {
-        let timer = Timer.publish(every: speed / activeSpeed.rawValue, on: .main, in: .common).autoconnect()
+        let timer = Timer.publish(every: 0.005, on: .main, in: .common).autoconnect()
+        
         VStack{
             VStack{
-                CarBody(width: 90, isCarWent: $startAnimation, color: $carColor, speed: $activeSpeed)
+                CarBody(width: 90, isCarWent: $startAnimation, color: $carColor)
             }
             .frame(height: 300)
             .offset(x: 0, y: 70)
-            .background(alignment: .trailing) {
-                BackgroundScene()
-                    .frame(width: 3000, height: 300)
-                    .offset(x: range)
-                    .animation(startAnimation ? slideBackground : .default, value: startAnimation)
-                    .onReceive(timer) { _ in
-                        self.range += self.startAnimation ? 1 : 0
-                        self.range = self.range.truncatingRemainder(dividingBy: 2760)
-                        if self.range == 0 {
-                            self.range = 150
-                        }
+            .background() {
+                ZStack {
+                    Rectangle()
+                    .foregroundColor(isDay ? daySkyColor : nightSkyColor)
+                    .animation(changeTimeOfDay, value: isDay)
+                    .frame(width: UIScreen.main.bounds.width)
+                    ForEach(0..<80){ i in
+                        Star(isDay: $isDay, size: 7)
+                            .offset(arrayPositionsStarsForScene[i])
+                        
                     }
+                    Image(systemName: "moon.fill")
+                        .resizable()
+                        .foregroundColor(.white)
+                        .frame(width: 50, height: 50)
+                        .offset(x: -widthScreen / 2 + 50, y: isDay ? 30 : -100)
+                        .animation(moonAnimation, value: isDay)
+                        .shadow(color: .white, radius: 15, x: 0, y: 0)
+                    Image(systemName: "sun.max.fill")
+                        .resizable()
+                        .foregroundColor(.yellow)
+                        .frame(width: 80, height: 80)
+                        .offset(x: widthScreen / 2 - 60,
+                                y: isDay ? -100 : 50)
+                        .animation(sunAnimation, value: isDay)
+                        .shadow(color: .white, radius: 15, x: 0, y: 0)
+                    HStack {
+                        FirstAndLastBackgroundScene(isDay: $isDay)
+                            .frame(width: UIScreen.main.bounds.width)
+                            .padding(.horizontal, -4)
+                        ForEach(0..<4) { iteration in
+
+                            BackgroundSceneV2(
+                                isDay: $isDay,
+                                countMountains: arrayMountainsForScene[iteration],
+                                positionMountains: arrayPositionsMountainsForScene[iteration],
+                                countTrees: arrayTreesForScene[iteration],
+                                positionTrees: arrayPositionsTreesForScene[iteration]
+                            )
+                                .frame(width: UIScreen.main.bounds.width)
+                                .padding(.horizontal, -4)
+                        }
+                        FirstAndLastBackgroundScene(isDay: $isDay)
+                            .frame(width: UIScreen.main.bounds.width)
+                            .padding(.horizontal, -4)
+                    }
+                    .offset(x: range)
+                        .animation(startAnimation ? slideBackground : .default, value: startAnimation)
+                        .onReceive(timer) { _ in
+                            self.range += self.startAnimation ? 1 : 0
+                            if self.range == -startPosition {
+                                self.range = startPosition
+                            }
+                        }
+                    
+                }
+                .frame(height: 300)
+                
             }
             Text("Цвет машины")
                 .font(.title2)
@@ -54,17 +127,7 @@ struct ContentView: View {
                 
                 Spacer()
             }
-            Text("Скорость")
-                .font(.title2)
-            HStack{
-                Spacer()
-                SpeedButton(speed: .first, speedAnimation: $activeSpeed)
-                Spacer()
-                SpeedButton(speed: .second, speedAnimation: $activeSpeed)
-                Spacer()
-                SpeedButton(speed: .third, speedAnimation: $activeSpeed)
-                Spacer()
-            }
+            CustomSwitch(size: 50, isOn: $isDay)
             Spacer()
             Button(action: {startAnimation.toggle()}) {
                 Text(startAnimation ? "Стоп" : "Поехали")
@@ -99,33 +162,7 @@ struct ColorButton: View {
         Button(action: {carColor = color}) {
             Circle()
                 .foregroundColor(color)
-                .overlay(Circle().stroke(borderColor, lineWidth: 4))
+                .overlay(Circle().stroke(borderColor, lineWidth: 1))
         }
     }
-}
-
-struct SpeedButton: View {
-    let speed: Speed
-    @Binding var speedAnimation: Speed
-    private var size: (CGFloat) {
-        if speedAnimation == speed {
-            return 50
-        }
-            return 35
-        
-    }
-    var body: some View {
-        Button(action: {speedAnimation = speed}) {
-            Text("\(Int(speed.rawValue))")
-                .frame(width: size, height: size)
-                .font(.title2)
-                .overlay(Circle().stroke(Color.black, lineWidth: 4))
-        }
-    }
-}
-
-enum Speed: Double {
-    case first = 1
-    case second = 2
-    case third = 3
 }

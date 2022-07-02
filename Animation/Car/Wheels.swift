@@ -12,7 +12,6 @@ struct Wheels: View {
     let width: CGFloat
     
     @Binding var isRotating: Bool
-    @Binding var speed: Speed
     @State private var degree: Double = 0
     
     
@@ -22,7 +21,7 @@ struct Wheels: View {
     }
     
     var body: some View {
-        let timer = Timer.publish(every: (1.8 / speed.rawValue) / 360, on: .main, in: .common).autoconnect()
+        let timer = Timer.publish(every: 1.8 / 360, on: .main, in: .common).autoconnect()
         VStack{
             HStack{
                 Wheel()
@@ -48,6 +47,6 @@ struct Wheels: View {
 
 struct Wheels_Previews: PreviewProvider {
     static var previews: some View {
-        Wheels(width: 350, isRotating:  .constant(false), speed: .constant(.third))
+        Wheels(width: 350, isRotating:  .constant(false))
     }
 }

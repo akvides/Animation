@@ -89,6 +89,7 @@ struct Mountain: View {
             }
         }
         .frame(width: width, height: height)
+        
     }
 }
 

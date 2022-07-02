@@ -16,7 +16,6 @@ struct CarBody: View {
     
     @Binding var isCarWent: Bool
     @Binding var color: Color
-    @Binding var speed: Speed
     
     private var foreverAnimation: Animation {
         .easeInOut(duration: 1)
@@ -44,11 +43,12 @@ struct CarBody: View {
                     .offset(y: isCarWent ? -(width * 0.02857142857) : 0)
                     .rotationEffect(.degrees(isCarWent ? 1 : 0))
                     .animation(isCarWent ? foreverAnimation : .default, value:  isCarWent)
-                    Wheels(width: self.width, isRotating: $isCarWent, speed: $speed)
+                    Wheels(width: self.width, isRotating: $isCarWent)
                 }
             }
         }
         .frame(width: width, height: height)
+        .zIndex(12)
     }
 }
 
@@ -56,7 +56,7 @@ struct CarBody: View {
 
 struct CarBody_Previews: PreviewProvider {
     static var previews: some View {
-        CarBody(width: 350, isCarWent: .constant(false), color: .constant(.black), speed: .constant(.first))
+        CarBody(width: 350, isCarWent: .constant(false), color: .constant(.black))
     }
 }
 

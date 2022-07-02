@@ -33,6 +33,7 @@ struct Wheel: View {
                         path.addLine(to: CGPoint(x: width * 0.125,
                                                  y: width * 0.175))
                     }
+                    .foregroundColor(.black)
                     .rotationEffect(.degrees(Double(iteration) * 18))
                 }
                 Circle()

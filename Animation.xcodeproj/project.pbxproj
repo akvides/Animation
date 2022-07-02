@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74509213285DE6CA009E77DD /* BackgroundSceneV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74509212285DE6CA009E77DD /* BackgroundSceneV2.swift */; };
+		74509215285DFA90009E77DD /* FirstAndLastBackgroundScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74509214285DFA90009E77DD /* FirstAndLastBackgroundScene.swift */; };
+		74509217285E149E009E77DD /* ForestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74509216285E149E009E77DD /* ForestScene.swift */; };
+		74509219285E24C5009E77DD /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74509218285E24C5009E77DD /* Star.swift */; };
+		74509220285F51D5009E77DD /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7450921F285F51D5009E77DD /* CustomSwitch.swift */; };
 		7463259F2853281A00313DBF /* AnimationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463259E2853281A00313DBF /* AnimationApp.swift */; };
 		746325A12853281A00313DBF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746325A02853281A00313DBF /* ContentView.swift */; };
 		746325A32853281D00313DBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 746325A22853281D00313DBF /* Assets.xcassets */; };
@@ -22,9 +27,16 @@
 		746325E62858CC0000313DBF /* Mountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746325E52858CBFF00313DBF /* Mountain.swift */; };
 		746325E82858DB6D00313DBF /* Mountain_Draft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746325E72858DB6C00313DBF /* Mountain_Draft.swift */; };
 		746325EC2858DC5600313DBF /* BackgroundScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746325EB2858DC5600313DBF /* BackgroundScene.swift */; };
+		749EFDDB28686DD500CE6095 /* FireEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749EFDDA28686DD500CE6095 /* FireEngine.swift */; };
+		74B5AD43285F6D2300ABFD11 /* CustomSwitch_Draft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B5AD42285F6D2300ABFD11 /* CustomSwitch_Draft.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		74509212285DE6CA009E77DD /* BackgroundSceneV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSceneV2.swift; sourceTree = "<group>"; };
+		74509214285DFA90009E77DD /* FirstAndLastBackgroundScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAndLastBackgroundScene.swift; sourceTree = "<group>"; };
+		74509216285E149E009E77DD /* ForestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForestScene.swift; sourceTree = "<group>"; };
+		74509218285E24C5009E77DD /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
+		7450921F285F51D5009E77DD /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		7463259B2853281A00313DBF /* Animation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7463259E2853281A00313DBF /* AnimationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationApp.swift; sourceTree = "<group>"; };
 		746325A02853281A00313DBF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,6 +53,8 @@
 		746325E52858CBFF00313DBF /* Mountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain.swift; sourceTree = "<group>"; };
 		746325E72858DB6C00313DBF /* Mountain_Draft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain_Draft.swift; sourceTree = "<group>"; };
 		746325EB2858DC5600313DBF /* BackgroundScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundScene.swift; sourceTree = "<group>"; };
+		749EFDDA28686DD500CE6095 /* FireEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireEngine.swift; sourceTree = "<group>"; };
+		74B5AD42285F6D2300ABFD11 /* CustomSwitch_Draft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch_Draft.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +73,21 @@
 			children = (
 				746325E12858BB5A00313DBF /* Tree.swift */,
 				746325E52858CBFF00313DBF /* Mountain.swift */,
+				74509218285E24C5009E77DD /* Star.swift */,
 				746325EB2858DC5600313DBF /* BackgroundScene.swift */,
+				74509212285DE6CA009E77DD /* BackgroundSceneV2.swift */,
+				74509214285DFA90009E77DD /* FirstAndLastBackgroundScene.swift */,
 			);
 			path = Landscape;
+			sourceTree = "<group>";
+		};
+		7450921C285E3E22009E77DD /* Forest Scene */ = {
+			isa = PBXGroup;
+			children = (
+				74509216285E149E009E77DD /* ForestScene.swift */,
+				7447E67428592A1F00666AF9 /* Landscape */,
+			);
+			path = "Forest Scene";
 			sourceTree = "<group>";
 		};
 		746325922853281A00313DBF = {
@@ -85,7 +111,9 @@
 			children = (
 				7463259E2853281A00313DBF /* AnimationApp.swift */,
 				746325A02853281A00313DBF /* ContentView.swift */,
-				7447E67428592A1F00666AF9 /* Landscape */,
+				7450921F285F51D5009E77DD /* CustomSwitch.swift */,
+				749EFDDA28686DD500CE6095 /* FireEngine.swift */,
+				7450921C285E3E22009E77DD /* Forest Scene */,
 				746325DF2858BB3300313DBF /* Car */,
 				746325B228534B7600313DBF /* Draft */,
 				746325A22853281D00313DBF /* Assets.xcassets */,
@@ -105,6 +133,7 @@
 		746325B228534B7600313DBF /* Draft */ = {
 			isa = PBXGroup;
 			children = (
+				74B5AD42285F6D2300ABFD11 /* CustomSwitch_Draft.swift */,
 				746325E72858DB6C00313DBF /* Mountain_Draft.swift */,
 				746325E32858C64E00313DBF /* Wood_Draft.swift */,
 				746325E02858BB3B00313DBF /* Car */,
@@ -202,19 +231,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				749EFDDB28686DD500CE6095 /* FireEngine.swift in Sources */,
+				74509215285DFA90009E77DD /* FirstAndLastBackgroundScene.swift in Sources */,
 				746325E62858CC0000313DBF /* Mountain.swift in Sources */,
+				74509213285DE6CA009E77DD /* BackgroundSceneV2.swift in Sources */,
 				746325E22858BB5A00313DBF /* Tree.swift in Sources */,
 				746325DA2854854100313DBF /* Wheels.swift in Sources */,
+				74509219285E24C5009E77DD /* Star.swift in Sources */,
 				746325A12853281A00313DBF /* ContentView.swift in Sources */,
 				746325DE2858ACBF00313DBF /* CarBody_Draft.swift in Sources */,
+				74B5AD43285F6D2300ABFD11 /* CustomSwitch_Draft.swift in Sources */,
 				746325EC2858DC5600313DBF /* BackgroundScene.swift in Sources */,
 				746325E42858C64E00313DBF /* Wood_Draft.swift in Sources */,
 				746325E82858DB6D00313DBF /* Mountain_Draft.swift in Sources */,
 				746325B128534B7200313DBF /* Wheel_Draft.swift in Sources */,
 				746325B4285350EC00313DBF /* CarBody.swift in Sources */,
 				746325DC2858AC1700313DBF /* Wheels_Draft.swift in Sources */,
+				74509217285E149E009E77DD /* ForestScene.swift in Sources */,
 				746325AF28532D2500313DBF /* Wheel.swift in Sources */,
 				7463259F2853281A00313DBF /* AnimationApp.swift in Sources */,
+				74509220285F51D5009E77DD /* CustomSwitch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

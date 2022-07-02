@@ -67,7 +67,6 @@ struct Tree: View {
                                              y: height * 0.7333333333))
                 }
                 .foregroundColor(barrelColor)
-                
             }
         }
         .frame(height: height)
